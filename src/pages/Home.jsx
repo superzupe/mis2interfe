@@ -5,7 +5,7 @@ import CTASection from "../components/CTASection";
 import CardSection from "../components/CardSection";
 import Footer from "../components/Footer";
 
-const HomePage = () => {
+const Home = () => {
   const cardRef = useRef(null);
 
   const scrollToCard = () => {
@@ -25,4 +25,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
