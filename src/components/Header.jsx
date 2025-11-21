@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import {
   videobelajarLogo,
   profileAvatar,
   barsIcon,
   logoutIcon,
-} from '../assets';
+} from "../assets";
+import { logout } from "./../utils/auth";
 
-const Header = ({ type = 'simple' }) => {
-  const isMain = type === 'main';
-  const isFilter = type === 'filter';
+const Header = ({ type = "simple" }) => {
+  const isMain = type === "main";
+  const isFilter = type === "filter";
 
   const [showMenu, setShowMenu] = useState(false);
   const handleShow = () => {
@@ -17,21 +18,24 @@ const Header = ({ type = 'simple' }) => {
   };
 
   const menuItems = [
-    { id: 0, label: 'Kategori' },
-    { id: 1, label: 'Profile Saya' },
-    { id: 2, label: 'Kelas Saya' },
-    { id: 3, label: 'Pesanan Saya' },
-    { id: 4, label: 'Keluar', icon: logoutIcon, danger: true },
+    { id: 0, label: "Kategori" },
+    { id: 1, label: "Profile Saya" },
+    { id: 2, label: "Kelas Saya" },
+    { id: 3, label: "Pesanan Saya" },
+    { id: 4, label: "Keluar", icon: logoutIcon, danger: true },
   ];
   const menuItemsMd = menuItems.filter((item) => item.id >= 1);
 
   const navigate = useNavigate();
-  const goLogout = () => navigate('/login');
-  const goShowKategori = () => navigate('/semuaproduk');
+  const goLogout = () => {
+    logout();
+    navigate("/login");
+  };
+  const goShowFilter = () => navigate("/filter");
 
   const handleMenuClick = (item) => {
-    if (item.label === 'Keluar') return goLogout(); //terus cara kembali ke home nya gimana, apa mending ini nested aja sama home
-    if (item.label === 'Kategori') return goShowKategori();
+    if (item.label === "Keluar") return goLogout(); 
+    if (item.label === "Kategori") return goShowFilter();
     handleShow();
   };
 
@@ -45,7 +49,7 @@ const Header = ({ type = 'simple' }) => {
         />
       </Link>
 
-      {isMain || isFilter && (
+      {(isMain || isFilter) && (
         <div className="md:relative">
           <button
             onClick={handleShow}
@@ -59,11 +63,11 @@ const Header = ({ type = 'simple' }) => {
           <div className="hidden flex-row items-center gap-5 md:flex">
             <button
               //maybe disini ganti link atau useNavigate ya, tapi nested atau routes tadi ituloh
-              onClick={goShowKategori}
+              onClick={goShowFilter}
               className={`text-sm  ${
                 isFilter
-                  ? 'text-btn-primary font-semibold hover:font-bold'
-                  : 'text-text-base font-medium hover:font-semibold'
+                  ? "text-btn-primary font-semibold hover:font-bold"
+                  : "text-text-base font-medium hover:font-semibold"
               }  md:text-base transition-all duration-300 ease-in-out cursor-pointer`}
             >
               {menuItems[0].label}
@@ -86,7 +90,7 @@ const Header = ({ type = 'simple' }) => {
                   key={item.id}
                   onClick={() => handleMenuClick(item)}
                   className={`md:hidden flex flex-row gap-4 p-4 items-center text-base font-medium border-b border-border-medium hover:font-bold transition-all duration-300 ease-in-out cursor-pointer ${
-                    item.danger ? 'text-red-500' : 'text-text-base'
+                    item.danger ? "text-red-500" : "text-text-base"
                   }`}
                 >
                   {item.label} <img src={item.icon} />
@@ -97,7 +101,7 @@ const Header = ({ type = 'simple' }) => {
                   key={item.id}
                   onClick={() => handleMenuClick(item)}
                   className={`hidden md:flex flex-row gap-4 p-4 items-center text-base font-medium border-b border-border-medium hover:font-bold transition-all duration-300 ease-in-out cursor-pointer ${
-                    item.danger ? 'text-red-500' : 'text-text-base'
+                    item.danger ? "text-red-500" : "text-text-base"
                   }`}
                 >
                   {item.label} <img src={item.icon} />
