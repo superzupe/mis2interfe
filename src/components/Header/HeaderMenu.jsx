@@ -1,0 +1,75 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { profileAvatar, iconBars, iconLogout } from "../../assets";
+import {logout} from '../../utils/auth'
+import HeaderDropdown from "./HeaderDropdown";
+
+const HeaderMenu = ({isAllVideos}) => {
+  const [showMenu, setShowMenu] = useState(false);
+  const handleShow = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const menuItems = [
+    { id: 0, label: "Kategori" },
+    { id: 1, label: "Profile Saya" },
+    { id: 2, label: "Kelas Saya" },
+    { id: 3, label: "Pesanan Saya" },
+    { id: 4, label: "Keluar", icon: iconLogout, danger: true },
+  ];
+  const menuItemsMd = menuItems.filter((item) => item.id >= 1);
+
+  const navigate = useNavigate();
+  const goLogout = () => {
+    logout();
+    navigate("/login");
+  };
+  const goShowAllVideos = () => navigate("/all-videos");
+
+  const handleMenuClick = (item) => {
+    if (item.label === "Keluar") return goLogout();
+    if (item.label === "Kategori") return goShowAllVideos();
+    handleShow();
+  };
+
+  return (
+    <div className="md:relative">
+      <button
+        onClick={handleShow}
+        className="flex md:hidden"
+      >
+        <img
+          src={iconBars}
+          alt="Icon Bars"
+        />
+      </button>
+      <div className="hidden flex-row items-center gap-5 md:flex">
+        <button
+          onClick={goShowAllVideos}
+          className={`text-sm  ${
+            isAllVideos
+              ? "text-btn-primary font-semibold hover:font-bold"
+              : "text-text-base font-medium hover:font-semibold"
+          }  md:text-base transition-all duration-300 ease-in-out cursor-pointer`}
+        >
+          {menuItems[0].label}
+        </button>
+        <button
+          onClick={handleShow}
+          className="cursor-pointer"
+        >
+          <img
+            src={profileAvatar}
+            alt="Profile Avatar"
+            className="w-12 rounded-md hover:ring-2 hover:ring-border-medium transition-all duration-300 ease-in-out"
+          />
+        </button>
+      </div>
+      {showMenu && (
+      <HeaderDropdown isAllVideos={isAllVideos} menuItems={menuItems} menuItemsMd={menuItemsMd} handleMenuClick={handleMenuClick}/>
+      )}
+    </div>
+  );
+};
+
+export default HeaderMenu;

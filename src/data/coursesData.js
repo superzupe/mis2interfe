@@ -41,6 +41,7 @@ export const courses = [
     price: 350000,
     priceLabel: "Rp 350K",
     tags: ["desain", "uiux", "creative"],
+    durationMinutes: 240, // 4 jam
   },
 
   {
@@ -60,6 +61,7 @@ export const courses = [
     price: 270000,
     priceLabel: "Rp 270K",
     tags: ["desain", "fotografi", "visual"],
+    durationMinutes: 180, // 3 jam
   },
 
   // 🔵 Kategori: PEMASARAN
@@ -80,6 +82,7 @@ export const courses = [
     price: 520000,
     priceLabel: "Rp 520K",
     tags: ["marketing", "seo", "ads"],
+    durationMinutes: 360, // 6 jam
   },
 
   {
@@ -99,6 +102,7 @@ export const courses = [
     price: 280000,
     priceLabel: "Rp 280K",
     tags: ["content", "marketing", "writing"],
+    durationMinutes: 210, // 3.5 jam
   },
 
   // 🟣 Kategori: PENGEMBANGAN DIRI
@@ -119,6 +123,7 @@ export const courses = [
     price: 250000,
     priceLabel: "Rp 250K",
     tags: ["softskill", "publicspeaking"],
+    durationMinutes: 150, // 2.5 jam
   },
 
   {
@@ -138,6 +143,7 @@ export const courses = [
     price: 320000,
     priceLabel: "Rp 320K",
     tags: ["career", "branding", "softskill"],
+    durationMinutes: 200, // ±3 jam 20 menit
   },
 
   // 🟠 Kategori: BISNIS
@@ -158,6 +164,7 @@ export const courses = [
     price: 490000,
     priceLabel: "Rp 490K",
     tags: ["bisnis", "startup", "entrepreneur"],
+    durationMinutes: 480, // 8 jam
   },
 
   {
@@ -177,6 +184,7 @@ export const courses = [
     price: 600000,
     priceLabel: "Rp 600K",
     tags: ["bisnis", "data", "analytics"],
+    durationMinutes: 540, // 9 jam
   },
 
   {
@@ -196,5 +204,6 @@ export const courses = [
     price: 550000,
     priceLabel: "Rp 550K",
     tags: ["bisnis", "product", "management"],
+    durationMinutes: 300, // 5 jam
   },
 ];

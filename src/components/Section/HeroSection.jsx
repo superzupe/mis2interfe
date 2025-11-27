@@ -1,8 +1,8 @@
-import { bannerHero } from "../assets";
+import { bannerHero } from "../../assets";
 
 const HeroSection = ({onScrollToCard}) => {
   return (
-    <section className="relative mt-30 mb-10 mx-auto md:mt-35 md:mb-16 w-full max-w-xs  md:max-w-7xl">
+    <section className="relative mb-10 mx-auto md:mt-35 md:mb-16 w-full max-w-xs  md:max-w-7xl">
       {/**Image */}
       <div
         className="absolute inset-0 bg-cover bg-center rounded-xl"

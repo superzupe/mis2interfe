@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login";
 import Register from '../pages/Register';
 import Home from '../pages/Home';
-import Filter from '../pages/Filter';
+import AllVideos from "../pages/AllVideos";
 import { isAuthenticated } from "../utils/auth";
 
 //halaman yang butuh login
@@ -66,10 +66,10 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/filter"
+        path="/all-videos"
         element={
           <ProtectedRoutes>
-            <Filter />
+            <AllVideos />
           </ProtectedRoutes>
         }
       />

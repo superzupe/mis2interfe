@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import Header from "../components/Header";
-import HeroSection from "../components/HeroSection";
-import CTASection from "../components/CTASection";
-import CardSection from "../components/CardSection";
-import Footer from "../components/Footer";
+import Header from "../components/Header/Header";
+import HeroSection from '../components/Section/HeroSection'
+import CTASection from "../components/Section/CTASection";
+import VideosSection from "../components/Section/VideosSection";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   const cardRef = useRef(null);
@@ -15,9 +15,12 @@ const Home = () => {
   return (
     <>
       <Header type="main" />
-      <main>
+      <main className="mt-30">
         <HeroSection onScrollToCard={scrollToCard} />
-        <CardSection ref={cardRef} />
+        <VideosSection
+          type="main"
+          ref={cardRef}
+        />
         <CTASection />
       </main>
       <Footer />

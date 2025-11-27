@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { bannerCTA } from "../assets";
+import { bannerCTA } from "../../assets";
 
 const CTASection = () => {
     const [value, setValue] = useState("");
