@@ -39,7 +39,7 @@ export const courses = [
     category: "Desain",
     rating: { value: 4.7, reviews: 112 },
     price: 350000,
-    priceLabel: "Rp 350K",
+    priceLabel: "350K",
     tags: ["desain", "uiux", "creative"],
     durationMinutes: 240, // 4 jam
   },
@@ -59,7 +59,7 @@ export const courses = [
     category: "Desain",
     rating: { value: 4.3, reviews: 91 },
     price: 270000,
-    priceLabel: "Rp 270K",
+    priceLabel: "270K",
     tags: ["desain", "fotografi", "visual"],
     durationMinutes: 180, // 3 jam
   },
@@ -80,7 +80,7 @@ export const courses = [
     category: "Pemasaran",
     rating: { value: 4.8, reviews: 172 },
     price: 520000,
-    priceLabel: "Rp 520K",
+    priceLabel: "520K",
     tags: ["marketing", "seo", "ads"],
     durationMinutes: 360, // 6 jam
   },
@@ -100,7 +100,7 @@ export const courses = [
     category: "Pemasaran",
     rating: { value: 4.5, reviews: 88 },
     price: 280000,
-    priceLabel: "Rp 280K",
+    priceLabel: "280K",
     tags: ["content", "marketing", "writing"],
     durationMinutes: 210, // 3.5 jam
   },
@@ -121,7 +121,7 @@ export const courses = [
     category: "Pengembangan Diri",
     rating: { value: 4.4, reviews: 134 },
     price: 250000,
-    priceLabel: "Rp 250K",
+    priceLabel: "250K",
     tags: ["softskill", "publicspeaking"],
     durationMinutes: 150, // 2.5 jam
   },
@@ -141,7 +141,7 @@ export const courses = [
     category: "Pengembangan Diri",
     rating: { value: 4.5, reviews: 132 },
     price: 320000,
-    priceLabel: "Rp 320K",
+    priceLabel: "320K",
     tags: ["career", "branding", "softskill"],
     durationMinutes: 200, // ±3 jam 20 menit
   },
@@ -162,7 +162,7 @@ export const courses = [
     category: "Bisnis",
     rating: { value: 4.8, reviews: 154 },
     price: 490000,
-    priceLabel: "Rp 490K",
+    priceLabel: "490K",
     tags: ["bisnis", "startup", "entrepreneur"],
     durationMinutes: 480, // 8 jam
   },
@@ -182,7 +182,7 @@ export const courses = [
     category: "Bisnis",
     rating: { value: 4.9, reviews: 301 },
     price: 600000,
-    priceLabel: "Rp 600K",
+    priceLabel: "600K",
     tags: ["bisnis", "data", "analytics"],
     durationMinutes: 540, // 9 jam
   },
@@ -202,7 +202,7 @@ export const courses = [
     category: "Bisnis",
     rating: { value: 4.7, reviews: 210 },
     price: 550000,
-    priceLabel: "Rp 550K",
+    priceLabel: "550K",
     tags: ["bisnis", "product", "management"],
     durationMinutes: 300, // 5 jam
   },

@@ -1,7 +1,9 @@
 import { forwardRef, useState, useMemo } from "react";
-import Card from '../Card/Card'
+import { getMergedCourses } from "../../utils/courseService";
+import { useNavigate } from "react-router-dom";
+import { FaListAlt } from "react-icons/fa";
+import Card from "../Card/Card";
 import ScrollableFilter from "../Filters/ScrollableFilter";
-import { courses } from "../../data/coursesData";
 
 const VideosSection = forwardRef((props, ref) => {
   const categories = [
@@ -14,9 +16,13 @@ const VideosSection = forwardRef((props, ref) => {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   const filteredCourses = useMemo(() => {
-    if (activeCategory === "Semua Kelas") return courses;
-    return courses.filter((course) => course.category === activeCategory);
+    if (activeCategory === "Semua Kelas") return getMergedCourses().slice(0, 6);
+    return getMergedCourses().filter(
+      (course) => course.category === activeCategory
+    );
   }, [activeCategory]);
+
+  const navigate = useNavigate();
 
   return (
     <section
@@ -43,9 +49,20 @@ const VideosSection = forwardRef((props, ref) => {
         {filteredCourses.map((course) => (
           <Card
             key={course.id}
+            type="main"
             course={course}
           />
         ))}
+      </div>
+      <div className="flex flex-row justify-center items-center">
+        <div className="flex-1 h-1 bg-border-medium"></div>
+        <button
+          onClick={() => navigate("/all-videos")}
+          className="flex flex-row justify-center items-center gap-2 px-3 md:px-24 py-2 font-medium text-sm md:text-base text-text-inverse bg-btn-tertiary hover:bg-btn-tertiary-hover rounded-4xl shadow-lg cursor-pointer transition-all duration-300 ease-in-out"
+        >
+          <FaListAlt /> Tampilkan semua item?
+        </button>
+        <div className="flex-1 h-1 bg-border-medium"></div>
       </div>
     </section>
   );

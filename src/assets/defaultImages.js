@@ -1,0 +1,43 @@
+import {
+  avDef1,
+  avDef2,
+  avDef3,
+  avDef4,
+  avDef5,
+  avDef6,
+  avDef7,
+  avDef8,
+  avDef9,
+  cardThum1,
+  cardThum2,
+  cardThum3,
+  cardThum4,
+  cardThum5,
+  cardThum6,
+  cardThum7,
+  cardThum8,
+  cardThum9,
+} from ".";
+
+export const DEFAULT_THUMBNAIL = [
+  cardThum1,
+  cardThum2,
+  cardThum3,
+  cardThum4,
+  cardThum5,
+  cardThum6,
+  cardThum7,
+  cardThum8,
+  cardThum9,
+];
+export const DEFAULT_AVATAR = [
+  avDef1,
+  avDef2,
+  avDef3,
+  avDef4,
+  avDef5,
+  avDef6,
+  avDef7,
+  avDef8,
+  avDef9,
+];

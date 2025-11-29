@@ -36,7 +36,7 @@ const Pagination = ({currentPage, totalPages, onPageChange}) => {
   };
 
   return (
-    <div className="flex flex-row gap-1.5">
+    <div className="flex flex-row justify-center gap-1.5">
       <button
         onClick={() => goToPage(currentPage - 1)}
         className="flex flex-row justify-center items-center w-10 h-10 bg-btn-accent rounded-md hover:bg-btn-accent-hover transition-all duration-200 ease-in-out cursor-pointer"

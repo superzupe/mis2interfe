@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { profileAvatar, iconBars, iconLogout } from "../../assets";
-import {logout} from '../../utils/auth'
+import { logout } from "../../utils/auth";
 import HeaderDropdown from "./HeaderDropdown";
 
-const HeaderMenu = ({isAllVideos}) => {
+const HeaderMenu = ({ isAllVideos, isAdmin }) => {
   const [showMenu, setShowMenu] = useState(false);
   const handleShow = () => {
     setShowMenu(!showMenu);
@@ -12,12 +12,15 @@ const HeaderMenu = ({isAllVideos}) => {
 
   const menuItems = [
     { id: 0, label: "Kategori" },
-    { id: 1, label: "Profile Saya" },
-    { id: 2, label: "Kelas Saya" },
-    { id: 3, label: "Pesanan Saya" },
-    { id: 4, label: "Keluar", icon: iconLogout, danger: true },
+    { id: 1, label: "Admin" },
+    { id: 2, label: "Profile Saya" },
+    { id: 3, label: "Kelas Saya" },
+    { id: 4, label: "Pesanan Saya" },
+    { id: 5, label: "Keluar", icon: iconLogout, danger: true },
   ];
   const menuItemsMd = menuItems.filter((item) => item.id >= 1);
+  const menuItemsAdmin = menuItems.filter((item) => item.id !== 1);
+  const menuItemsAdminMd = menuItems.filter((item) => item.id >= 2);
 
   const navigate = useNavigate();
   const goLogout = () => {
@@ -26,9 +29,12 @@ const HeaderMenu = ({isAllVideos}) => {
   };
   const goShowAllVideos = () => navigate("/all-videos");
 
+  const goAdminPage = () => navigate("/admin");
+
   const handleMenuClick = (item) => {
-    if (item.label === "Keluar") return goLogout();
     if (item.label === "Kategori") return goShowAllVideos();
+    if (item.label === "Admin") return goAdminPage();
+    if (item.label === "Keluar") return goLogout();
     handleShow();
   };
 
@@ -66,7 +72,15 @@ const HeaderMenu = ({isAllVideos}) => {
         </button>
       </div>
       {showMenu && (
-      <HeaderDropdown isAllVideos={isAllVideos} menuItems={menuItems} menuItemsMd={menuItemsMd} handleMenuClick={handleMenuClick}/>
+        <HeaderDropdown
+          isAllVideos={isAllVideos}
+          isAdmin={isAdmin}
+          menuItems={menuItems}
+          menuItemsMd={menuItemsMd}
+          menuItemsAdmin={menuItemsAdmin}
+          menuItemsAdminMd={menuItemsAdminMd}
+          handleMenuClick={handleMenuClick}
+        />
       )}
     </div>
   );

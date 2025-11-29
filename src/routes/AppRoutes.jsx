@@ -3,6 +3,7 @@ import Login from "../pages/Login";
 import Register from '../pages/Register';
 import Home from '../pages/Home';
 import AllVideos from "../pages/AllVideos";
+import Admin from "../pages/Admin";
 import { isAuthenticated } from "../utils/auth";
 
 //halaman yang butuh login
@@ -70,6 +71,14 @@ const AppRoutes = () => {
         element={
           <ProtectedRoutes>
             <AllVideos />
+          </ProtectedRoutes>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoutes>
+            <Admin />
           </ProtectedRoutes>
         }
       />

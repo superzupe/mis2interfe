@@ -23,6 +23,16 @@ export {default as cardThum7 } from "./images/card-thumbnail-7.png";
 export {default as cardThum8 } from "./images/card-thumbnail-8.png";
 export {default as cardThum9 } from "./images/card-thumbnail-9.png";
 
+export {default as avDef1} from "./icons/av-def-1.png"
+export {default as avDef2} from "./icons/av-def-2.png"
+export {default as avDef3} from "./icons/av-def-3.png"
+export {default as avDef4} from "./icons/av-def-4.png"
+export {default as avDef5} from "./icons/av-def-5.png"
+export {default as avDef6} from "./icons/av-def-6.png"
+export {default as avDef7} from "./icons/av-def-7.png"
+export {default as avDef8} from "./icons/av-def-8.png"
+export {default as avDef9} from "./icons/av-def-9.png"
+
 export {default as avDanu} from "./images/avatar-danu.jpeg";
 export {default as avFarhan} from "./images/avatar-farhan.jpeg";
 export {default as avFauzan} from "./images/avatar-fauzan.jpeg";

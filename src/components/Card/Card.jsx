@@ -1,10 +1,12 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
-const Card = ({ course }) => {
+const Card = ({ type, course, onEdit, onDelete }) => {
+  const isMain = type === "main";
+  const isAdmin = type === "admin";
+
   return (
-    <div
-      className="group flex flex-col bg-bg-main w-full max-w-xs p-4 border border-border-medium rounded-xl hover:border-border-dark md:max-w-sm md:p-5 md:gap-4 transition-all duration-300 ease-in-out"
-    >
+    <div className="group flex flex-col bg-bg-main w-full max-w-xs p-4 border border-border-medium rounded-xl hover:border-border-dark md:max-w-sm md:p-5 md:gap-4 transition-all duration-300 ease-in-out">
       <div className="flex flex-row gap-3 md:flex-col">
         <img
           src={course.thumbnail}
@@ -47,17 +49,38 @@ const Card = ({ course }) => {
         </div>
       </div>
       <div className="flex flex-row justify-between items-center">
-        <div className="flex flex-row gap-2">
-          
-          <StarRating value={course.rating.value} />
-
-          <p className="font-medium text-sm md:text-base text-text-base">
-            {course.rating.value} ({course.rating.reviews})
-          </p>
-        </div>
-        <h4 className="card-price font-poppins font-semibold text-xl md:text-2xl text-btn-primary">
+        {/* rating */}
+        {isMain && (
+          <div className="flex flex-row gap-2">
+            <StarRating value={course.rating.value} />
+            <p className="font-medium text-sm md:text-base text-text-base">
+              {course.rating.value} ({course.rating.reviews})
+            </p>
+          </div>
+        )}
+        {/* price */}
+        <span className="card-price font-poppins font-semibold text-xl md:text-2xl text-btn-primary">
           {course.priceLabel}
-        </h4>
+        </span>
+        {/* button del and edit */}
+        {isAdmin && (
+          <div className="flex flex-row gap-2 mt-3">
+            <ButtonCard
+            onClick={onEdit}
+              bg="bg-orange-200"
+              bgHover="hover:bg-orange-300"
+              icon={<HiOutlinePencil />}
+              label="edit"
+            />
+            <ButtonCard
+            onClick={onDelete}
+              bg="bg-red-200"
+              bgHover="hover:bg-red-300"
+              icon={<HiOutlineTrash />}
+              label="delete"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -81,6 +104,18 @@ const StarRating = ({ value }) => {
         </span>
       ))}
     </div>
+  );
+};
+
+const ButtonCard = ({onClick, bg, bgHover, icon, label }) => {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex flex-row items-center gap-1 p-2 font-medium text-sm md:text-base text-text-base ${bg} ${bgHover} rounded-4xl cursor-pointer transition-all duration-300 ease-in-out`}
+    >
+      {icon} <span>{label}</span>
+    </button>
   );
 };
 

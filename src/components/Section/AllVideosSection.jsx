@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { courses } from "../../data/coursesData";
 import { menuFilters } from "../../data/menuFilters";
+import { getMergedCourses } from "../../utils/courseService";
 import SidebarFilter from "../Filters/SidebarFilter";
 import Search from "../Filters/Search";
 import SortDropdown from "../Filters/SortDropdown";
@@ -57,7 +57,7 @@ const AllVideosSection = () => {
 
   //Array courses
   const filteredCourses = useMemo(() => {
-    let temp = [...courses];
+    let temp = [...getMergedCourses()];
 
     // 1) SEARCH
     if (filters.search.trim() !== "") {
@@ -168,6 +168,7 @@ const AllVideosSection = () => {
               currentData.map((course, i) => (
                 <Card
                   key={i}
+                  type="main"
                   course={course}
                 />
               ))
