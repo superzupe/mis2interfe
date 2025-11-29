@@ -1,5 +1,5 @@
 import Header from "../components/Header/Header";
-import AuthForm from "../components/Auth/AuthForm";
+import AuthForm from "../components/auth_temp/AuthForm";
 
 const Login = () => {
   return (
