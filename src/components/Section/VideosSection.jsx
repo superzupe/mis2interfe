@@ -31,9 +31,9 @@ const VideosSection = forwardRef((props, ref) => {
     >
       {/** Header */}
       <div className="flex flex-col gap-2.5">
-        <h3 className="font-poppins text-2xl md:text-3xl font-semibold text-text-main">
+        <h1 className="font-poppins text-2xl md:text-3xl font-semibold text-text-main">
           Koleksi Video Pembelajaran Unggulan
-        </h3>
+        </h1>
         <p className="font-medium text-sm md:text-base text-text-base">
           Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!
         </p>

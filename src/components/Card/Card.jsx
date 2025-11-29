@@ -34,9 +34,9 @@ const Card = ({ type, course, onEdit, onDelete }) => {
               className="w-9 h-9 rounded-lg md:w-10 md:h-10"
             />
             <div>
-              <h4 className="font-medium text-sm md:text-base text-text-main">
+              <p className="font-medium text-sm md:text-base text-text-main">
                 {course.instructor.name}
-              </h4>
+              </p>
               <p className="font-normal text-xs md:text-sm text-text-base">
                 {course.instructor.role}
                 <span className="hidden md:inline">
